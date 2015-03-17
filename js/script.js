@@ -28,7 +28,7 @@ function onClose(evt) {
 }
 function onMessage(evt) {
     writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data + '</span>');
-    websocket.close();
+    //websocket.close();
 }
 function onError(evt) {
     writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data);
@@ -42,5 +42,9 @@ function writeToScreen(message) {
     pre.style.wordWrap = "break-word";
     pre.innerHTML = message;
     output.appendChild(pre);
+}
+function sendNewMessage(){
+    var message = document.getElementById("newMessage").value;
+    doSend(message);
 }
 window.addEventListener("load", init, false);
